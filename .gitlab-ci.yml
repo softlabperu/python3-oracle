@@ -1,0 +1,13 @@
+variables:
+    GIT_SSL_NO_VERIFY: "true"
+
+local:
+  image: docker:stable
+  script:
+    - docker build --pull -t "$REGISTRY_HOST/$CI_PROJECT_NAME:$CI_COMMIT_REF_SLUG" .
+    - docker push "$REGISTRY_HOST/$CI_PROJECT_NAME:$CI_COMMIT_REF_SLUG"
+  tags:
+    - docker
+  only:
+    - master
+    - develop
