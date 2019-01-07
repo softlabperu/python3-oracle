@@ -16,9 +16,9 @@ RUN apt-get update && \
   	pip3 install -U pip setuptools && \
     rm -rf /var/lib/apt/lists/*
 
-COPY ./*.rpm /tmp
+ADD *.rpm /
 
-RUN alien -i /tmp/oracle-instantclient18.3-basic-18.3.0.0.0-1.x86_64.rpm && \
+RUN alien -i oracle-instantclient18.3-basic-18.3.0.0.0-1.x86_64.rpm && \
     alien -i oracle-instantclient18.3-devel-18.3.0.0.0-1.x86_64.rpm && \
     echo "/usr/lib/oracle/18.3/client64/lib/" > /etc/ld.so.conf.d/oracle.conf && \
     ldconfig && \
