@@ -6,6 +6,7 @@ MAINTAINER Softlabperu
 
 RUN apt-get update && \
     apt-get install -y \
+    git \
     alien \
     libaio1 \
     python3 \
