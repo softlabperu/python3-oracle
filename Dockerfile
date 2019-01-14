@@ -8,12 +8,12 @@ RUN apt-get update && \
     apt-get install -y \
     alien \
     libaio1 \
-	  python3 \
-  	python3-dev \
-  	python3-pip \
-  	libmysqlclient-dev \
-  	python3-setuptools && \
-  	pip3 install -U pip setuptools && \
+    python3 \
+    python3-dev \
+    python3-pip \
+    libmysqlclient-dev \
+    python3-setuptools && \
+    pip3 install -U pip setuptools && \
     rm -rf /var/lib/apt/lists/*
 
 ADD *.rpm /
