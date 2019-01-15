@@ -10,6 +10,7 @@ RUN apt-get update && \
     alien \
     libaio1 \
     python3 \
+    supervisor \
     python3-dev \
     python3-pip \
     libmysqlclient-dev \
