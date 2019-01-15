@@ -8,6 +8,7 @@ RUN apt-get update && \
     apt-get install -y \
     git \
     alien \
+    nginx \
     libaio1 \
     python3 \
     supervisor \
