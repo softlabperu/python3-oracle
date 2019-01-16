@@ -12,8 +12,11 @@ RUN apt-get update && \
     libaio1 \
     python3 \
     supervisor \
+    libssl-dev \
     python3-dev \
     python3-pip \
+    libsasl2-dev \
+    libldap2-dev \
     libmysqlclient-dev \
     python3-setuptools && \
     pip3 install -U pip setuptools && \
