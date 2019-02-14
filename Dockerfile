@@ -4,6 +4,7 @@ MAINTAINER softlabperu.com
 
 RUN apt-get update && \
     apt-get install -y \
+    vim \
     git \
     alien \
     nginx \
