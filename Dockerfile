@@ -2,6 +2,9 @@ FROM ubuntu:18.04
 
 MAINTAINER softlabperu.com
 
+RUN DEBIAN_FRONTEND="noninteractive" 
+RUN apt-get update && apt-get install -y tzdata
+
 RUN apt-get update && \
     apt-get install -y \
     vim \
@@ -17,7 +20,6 @@ RUN apt-get update && \
     libsasl2-dev \
     libldap2-dev \
     libmysqlclient-dev && \
-    tzdata && \
     pip3 install -U pip setuptools uwsgi && \
     rm -rf /var/lib/apt/lists/*
 
