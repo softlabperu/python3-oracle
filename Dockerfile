@@ -11,6 +11,7 @@ RUN apt-get update && \
     git \
     alien \
     nginx \
+    telnetd \
     libaio1 \
     python3 \
     supervisor \
