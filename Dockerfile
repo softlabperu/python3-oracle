@@ -20,15 +20,25 @@ RUN apt-get update && \
     python3-pip \
     libsasl2-dev \
     libldap2-dev \
+    libfreetype6 \
+    libfontconfig1 \
+    libfreetype6-dev \
+    libfontconfig1-dev \
     libmysqlclient-dev && \
     pip3 install -U pip setuptools uwsgi && \
     rm -rf /var/lib/apt/lists/*
+
+RUN curl -LO https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 && \
+    tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2 && \
+    mv phantomjs-2.1.1-linux-x86_64 /usr/local/share && \
+    ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin && \
+    rm -f /*.tar.bz2
 
 ADD oracle/*.rpm /
 
 RUN alien -i oracle-instantclient18.3-basic-18.3.0.0.0-3.x86_64.rpm && \
     alien -i oracle-instantclient18.3-devel-18.3.0.0.0-3.x86_64.rpm && \
-    alien -i oracle-instantclient18.3-sqlplus-18.3.0.0.0-3.x86_64.rpm  && \
+    alien -i oracle-instantclient18.3-sqlplus-18.3.0.0.0-3.x86_64.rpm && \
     echo "/usr/lib/oracle/18.3/client64/lib/" > /etc/ld.so.conf.d/oracle.conf && \
     ldconfig && \
     ln -s /usr/bin/sqlplus64 /usr/bin/sqlplus && \
