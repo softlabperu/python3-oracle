@@ -1,7 +1,5 @@
 FROM ubuntu:18.04
 
-MAINTAINER softlabperu.com
-
 RUN DEBIAN_FRONTEND="noninteractive" 
 RUN apt-get update && apt-get install -y tzdata
 
@@ -11,7 +9,7 @@ RUN apt-get update && \
     git \
     alien \
     nginx \
-    telnetd \
+    telnet \
     libaio1 \
     python3 \
     supervisor \
