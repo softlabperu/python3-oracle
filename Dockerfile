@@ -7,6 +7,7 @@ RUN apt-get update && \
     apt-get install -y \
     vim \
     git \
+    xvfb \
     alien \
     nginx \
     telnet \
@@ -22,9 +23,14 @@ RUN apt-get update && \
     libfontconfig1 \
     libfreetype6-dev \
     libfontconfig1-dev \
+    chromium-chromedriver \
     libmysqlclient-dev && \
     pip3 install -U pip setuptools uwsgi && \
     rm -rf /var/lib/apt/lists/*
+
+RUN curl -LO https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
+    dpkg -i google-chrome-stable_current_amd64.deb \
+    rm google-chrome-stable_current_amd64.deb
 
 RUN curl -LO https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 && \
     tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2 && \
