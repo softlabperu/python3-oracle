@@ -30,11 +30,11 @@ RUN apt-get update && \
     pip3 install -U pip setuptools uwsgi && \
     rm -rf /var/lib/apt/lists/*
 
-RUN curl -LO https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
     dpkg -i google-chrome-stable_current_amd64.deb && \
     rm -f /google-chrome-stable_current_amd64.deb
 
-RUN curl -LO https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 && \
+RUN wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 && \
     tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2 && \
     mv phantomjs-2.1.1-linux-x86_64 /usr/local/share && \
     ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin && \
