@@ -8,6 +8,7 @@ RUN apt-get update && \
     vim \
     git \
     xvfb \
+    wget \
     alien \
     nginx \
     telnet \
@@ -23,6 +24,7 @@ RUN apt-get update && \
     libfontconfig1 \
     libfreetype6-dev \
     libfontconfig1-dev \
+    fonts-liberation \
     chromium-chromedriver \
     libmysqlclient-dev && \
     pip3 install -U pip setuptools uwsgi && \
