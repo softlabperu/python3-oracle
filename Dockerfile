@@ -11,9 +11,12 @@ RUN apt-get update && \
     wget \
     alien \
     nginx \
+    wmctrl \
+    x11vnc \
     telnet \
     libaio1 \
     python3 \
+    fluxbox \
     supervisor \
     libssl-dev \
     python3-dev \
@@ -23,10 +26,10 @@ RUN apt-get update && \
     libfreetype6 \
     libfontconfig1 \
     libfreetype6-dev \
-    libfontconfig1-dev \
     fonts-liberation \
-    chromium-chromedriver \
-    libmysqlclient-dev && \
+    libmysqlclient-dev \
+    libfontconfig1-dev \
+    chromium-chromedriver && \
     pip3 install -U pip setuptools uwsgi && \
     rm -rf /var/lib/apt/lists/*
 
