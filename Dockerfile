@@ -52,3 +52,5 @@ RUN alien -i oracle-instantclient18.3-basic-18.3.0.0.0-3.x86_64.rpm && \
     ldconfig && \
     ln -s /usr/bin/sqlplus64 /usr/bin/sqlplus && \
     rm -f /*.rpm
+
+ENV DISPLAY=:99
