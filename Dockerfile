@@ -7,11 +7,16 @@ RUN apt-get update && \
     apt-get install -y \
     vim \
     git \
+    xvfb \
+    wget \
     alien \
     nginx \
+    wmctrl \
+    x11vnc \
     telnet \
     libaio1 \
     python3 \
+    fluxbox \
     supervisor \
     libssl-dev \
     python3-dev \
@@ -21,12 +26,18 @@ RUN apt-get update && \
     libfreetype6 \
     libfontconfig1 \
     libfreetype6-dev \
+    fonts-liberation \
+    libmysqlclient-dev \
     libfontconfig1-dev \
     libmysqlclient-dev && \
     pip3 install -U pip setuptools && \
     rm -rf /var/lib/apt/lists/*
 
-RUN curl -LO https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 && \
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
+    dpkg -i google-chrome-stable_current_amd64.deb && \
+    rm -f /google-chrome-stable_current_amd64.deb
+
+RUN wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 && \
     tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2 && \
     mv phantomjs-2.1.1-linux-x86_64 /usr/local/share && \
     ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin && \
@@ -41,3 +52,5 @@ RUN alien -i oracle-instantclient18.3-basic-18.3.0.0.0-3.x86_64.rpm && \
     ldconfig && \
     ln -s /usr/bin/sqlplus64 /usr/bin/sqlplus && \
     rm -f /*.rpm
+
+ENV DISPLAY=:99
