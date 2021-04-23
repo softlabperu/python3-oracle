@@ -14,21 +14,29 @@ RUN apt-get update && \
     wmctrl \
     x11vnc \
     telnet \
+    libgbm1 \
     libaio1 \
     python3 \
     fluxbox \
+    libcups2 \
+    libcairo2 \
+    xdg-utils \
     supervisor \
     libssl-dev \
+    libgtk-3-0 \
     python3-dev \
     python3-pip \
     libsasl2-dev \
     libldap2-dev \
     libfreetype6 \
+    libxkbcommon0 \
+    libpango-1.0-0 \
     libfontconfig1 \
     libfreetype6-dev \
     fonts-liberation \
     libmysqlclient-dev \
     libfontconfig1-dev \
+    libatk-bridge2.0-0 \
     libmysqlclient-dev && \
     pip3 install -U pip setuptools && \
     rm -rf /var/lib/apt/lists/*
