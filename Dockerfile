@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:21.04
 
 RUN DEBIAN_FRONTEND="noninteractive" 
 RUN apt-get update && apt-get install -y tzdata
@@ -16,8 +16,10 @@ RUN apt-get update && \
     telnet \
     libgbm1 \
     libaio1 \
+    libnss3 \
     python3 \
     fluxbox \
+    libnspr4 \
     libcups2 \
     libcairo2 \
     xdg-utils \
@@ -53,10 +55,10 @@ RUN wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x
 
 ADD oracle/*.rpm /
 
-RUN alien -i oracle-instantclient18.3-basic-18.3.0.0.0-3.x86_64.rpm && \
-    alien -i oracle-instantclient18.3-devel-18.3.0.0.0-3.x86_64.rpm && \
-    alien -i oracle-instantclient18.3-sqlplus-18.3.0.0.0-3.x86_64.rpm && \
-    echo "/usr/lib/oracle/18.3/client64/lib/" > /etc/ld.so.conf.d/oracle.conf && \
+RUN alien -i oracle-instantclient-basic-21.1.0.0.0-1.x86_64.rpm && \
+    alien -i oracle-instantclient-devel-21.1.0.0.0-1.x86_64.rpm && \
+    alien -i oracle-instantclient-sqlplus-21.1.0.0.0-1.x86_64.rpm && \
+    echo "/usr/lib/oracle/21/client64/lib/" > /etc/ld.so.conf.d/oracle.conf && \
     ldconfig && \
     ln -s /usr/bin/sqlplus64 /usr/bin/sqlplus && \
     rm -f /*.rpm
