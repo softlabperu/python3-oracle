@@ -1,10 +1,10 @@
 FROM ubuntu:21.04
 
 RUN DEBIAN_FRONTEND="noninteractive" 
-RUN apt-get update && apt-get install -y tzdata
+RUN apt update && apt install -y tzdata
 
-RUN apt-get update && \
-    apt-get install -y \
+RUN apt update && \
+    apt install -y \
     vim \
     git \
     xvfb \
@@ -60,7 +60,7 @@ RUN alien -i oracle-instantclient-basic-21.1.0.0.0-1.x86_64.rpm && \
     alien -i oracle-instantclient-sqlplus-21.1.0.0.0-1.x86_64.rpm && \
     echo "/usr/lib/oracle/21/client64/lib/" > /etc/ld.so.conf.d/oracle.conf && \
     ldconfig && \
-    ln -s /usr/bin/sqlplus64 /usr/bin/sqlplus && \
+    #ln -s /usr/bin/sqlplus64 /usr/bin/sqlplus && \
     rm -f /*.rpm
 
 ENV DISPLAY=:99
